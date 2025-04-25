@@ -1,5 +1,5 @@
 import streamlit as st
-from app.pipeline import process_syllabus
+from pipeline import process_syllabus
 
 st.set_page_config(page_title="EduMapr", layout="wide")
 st.title("EduMapr: AI-Powered Syllabus Analyzer")
