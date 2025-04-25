@@ -1,6 +1,6 @@
-from app.ocr_parser import extract_text_from_pdf
-from app.insights_llm import get_structured_summary
-from app.book_finder import find_books_on_amazon
+from ocr_parser import extract_text_from_pdf
+from insights_llm import get_structured_summary
+from book_finder import find_books_on_amazon
 
 def process_syllabus(uploaded_pdf):
     # 1. OCR + Text Extraction
