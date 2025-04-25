@@ -19,7 +19,6 @@ def find_books_on_amazon(book_titles):
             response = requests.get(search_url, headers=headers)
             soup = BeautifulSoup(response.text, 'html.parser')
 
-            # Find the first book result container
             first_result = soup.find('div', {'data-component-type': 's-search-result'})
 
             if not first_result:
@@ -32,7 +31,6 @@ def find_books_on_amazon(book_titles):
                 })
                 continue
 
-            # Extract details
             link_tag = first_result.find('a', class_='a-link-normal', href=True)
             full_link = "https://www.amazon.in" + link_tag['href'] if link_tag else search_url
 
@@ -49,7 +47,7 @@ def find_books_on_amazon(book_titles):
                 "image": image_tag['src'] if image_tag else None
             })
 
-            time.sleep(1.5)  # Be nice to Amazon: avoid rate-limiting
+            time.sleep(1.5)  # avoid rate-limiting
 
         except Exception as e:
             print(f"Error fetching book '{title}': {e}")
