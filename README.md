@@ -4,15 +4,21 @@
 
 ---
 
+## Deployment
+
+The application is deployed on Render and can be accessed at the following link: [EduMapr](https://edumapr.onrender.com/).
+
+---
+
 ## Text Recognition from Syllabus PDFs
 
-The app begins by handling uploaded syllabus PDFs, which may include scanned or digitally generated documents. To ensure accessibility across different file formats, OCR is applied using a hosted model. This allows for text extraction even from image-based syllabi. The extracted content is processed and checked for relevance before further steps are taken. This prevents unnecessary model calls and helps maintain consistent results. The OCR process outputs a markdown-formatted version of the syllabus content, which is used as the input for further summarization. The current setup is able to handle multi-page documents and works well with most common syllabus formats.
+The app begins by handling uploaded syllabus PDFs, which may include scanned or digitally generated documents. To ensure accessibility across different file formats, OCR is applied using a hosted model _(mistral-ocr-latest)_. This allows for text extraction even from image-based syllabi. The extracted content is processed and checked for relevance before further steps are taken. This prevents unnecessary model calls and helps maintain consistent results. The OCR process outputs a markdown-formatted version of the syllabus content, which is used as the input for further summarization. The current setup is able to handle multi-page documents and works well with most common syllabus formats.
 
 ---
 
 ## Summarization Using Language Model API
 
-After the text is extracted, it is passed to a language model endpoint that has been instructed to return structured information. The model provides a short summary of the course, a list of topics in an estimated learning sequence, prerequisite knowledge (if any), and a list of recommended book titles found in the document. This step is handled through an API call using a chat-based interface with a fixed output structure in JSON format. No fine-tuning has been done — the model is used as-is with prompt design focused on consistency. This part of the app helps organize syllabus content into a digestible format and reduces the need to manually scan through lengthy PDFs.
+After the text is extracted, it is passed to a language model endpoint that has been instructed to return structured information _(ministral-8b-latest)_. The model provides a short summary of the course, a list of topics in an estimated learning sequence, prerequisite knowledge (if any), and a list of recommended book titles found in the document. This step is handled through an API call using a chat-based interface with a fixed output structure in JSON format. No fine-tuning has been done — the model is used as-is with prompt design focused on consistency. This part of the app helps organize syllabus content into a digestible format and reduces the need to manually scan through lengthy PDFs.
 
 ---
 
@@ -28,8 +34,4 @@ The app is built using Streamlit to provide a simple and interactive frontend. U
 
 ---
 
-## Deployment
 
-The application is deployed on Render and can be accessed at the following link: [EduMapr](https://edumapr.onrender.com/).
-
----
