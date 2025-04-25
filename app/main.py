@@ -13,16 +13,16 @@ if uploaded_file:
     if isinstance(summary, str) and summary.startswith("The uploaded PDF does not appear"):
         st.error(summary)
     else:
-        st.subheader("📘 Course Summary")
+        st.subheader("Course Summary")
         st.markdown(summary)
 
-        st.subheader("🔗 Learning Sequence")
+        st.subheader("Learning Sequence")
         for i, topic in enumerate(sequence, 1):
             st.markdown(f"**{i}. {topic}**")
 
-        st.subheader("⚙️ Prerequisites")
+        st.subheader("Prerequisites")
         st.markdown(", ".join(prerequisites) if prerequisites else "No specific prerequisites found.")
-        st.subheader("📚 Recommended Books")
+        st.subheader("Recommended Books")
         for book in books:
             st.markdown(f"### [{book['title']}]({book['url']})")
             st.image(book["image"], width=150)
