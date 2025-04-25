@@ -1,0 +1,8 @@
+[theme]
+# Branding Colors
+primaryColor = "#4F46E5"                     # Indigo button/link color
+backgroundColor = "#F9FAFB"                  # Very light gray background
+secondaryBackgroundColor = "#E5E7EB"         # Light gray sidebar/card color
+textColor = "#1F2937"                        # Dark slate text
+font = "sans serif"                          # Use Google's Inter/Roboto-like font
+
