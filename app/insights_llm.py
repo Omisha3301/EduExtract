@@ -3,7 +3,7 @@ from mistralai import Mistral, DocumentURLChunk, ImageURLChunk, TextChunk
 import json
 from dotenv import load_dotenv
 
-load_dotenv()  # Must be called before accessing os.environ
+load_dotenv()  
 api_key = os.getenv("LLM_API_KEY")
 client = Mistral(api_key=api_key)
 def get_structured_summary(ocr_markdown):
@@ -30,7 +30,7 @@ def get_structured_summary(ocr_markdown):
     try:
         return json.loads(chat_response.choices[0].message.content)
     except Exception as e:
-        print("⚠️ Error parsing LLM response:", e)
+        print("Error parsing LLM response:", e)
         return {
             "summary": "Error in LLM response.",
             "learning_sequence": [],
