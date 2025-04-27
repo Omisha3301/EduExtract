@@ -25,7 +25,10 @@ if uploaded_file:
         st.subheader("Recommended Books")
         for book in books:
             st.markdown(f"### [{book['title']}]({book['url']})")
-            st.image(book["image"], width=150)
+            if book["image"]:
+                st.image(book["image"], width=150)
+            else:
+                st.write(f"Image for '{book['title']}' is not available.")
             st.markdown(f"**Author**: {book['author']}")
             st.markdown(f"**Price**: {book['price']}")
             st.markdown("---")
